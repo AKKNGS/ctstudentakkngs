@@ -21,7 +21,9 @@ async function loadData() {
 
         // បញ្ចូលទិន្នន័យទៅក្នុងតារាង
         studentData.forEach(s => {
+            if (!s.name || s.name.trim() === "") return;
             let genderIconClass = "";
+            
             if (s.gender === "ស្រី") {
                 femaleCount++;
                 genderIconClass = "fa-venus gender-icon color-pink"; // Icon ស្រី
@@ -71,4 +73,5 @@ function switchTab(tab) {
 }
 
 // ៤. ហៅឱ្យ loadData ដំណើរការនៅពេលបើក App ភ្លាម
+
 window.onload = loadData;
