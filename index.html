@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប្រព័ន្ធគ្រប់គ្រងសិស្ស</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="theme-color" content="#4A90E2">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="សាលា Logo" class="school-logo">
+            <div class="school-name">
+                <div>សាលាបឋមសិក្សាសម្តេចព្រះរាជអគ្គមហេសី</div>
+                <div>នរោត្តមមុនីនាថសីហនុ</div>
+            </div>
+        </div>
+        <h2 id="page-title">បញ្ជីរាយនាមសិស្សរៀន CT</h2>
+    </header>
+
+    <main id="main-content">
+        <section id="home-page">
+            <div class="summary-cards">
+                <div class="card shadow">
+                    <i class="fas fa-users color-blue"></i>
+                    <div class="card-info">
+                        <span class="label">សិស្សសរុប</span>
+                        <span class="count" id="total-students">0</span>
+                    </div>
+                </div>
+                <div class="card shadow">
+                    <i class="fas fa-venus color-pink"></i>
+                    <div class="card-info">
+                        <span class="label">សរុបស្រី</span>
+                        <span class="count" id="total-female">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container shadow">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>លរ</th>
+                            <th>ឈ្មោះ</th>
+                            <th>ភេទ</th>
+                            <th>ថ្នាក់</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-list">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="account-page" class="hidden">
+            <div class="profile-card shadow">
+                <div class="profile-header">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h3>ព័ត៌មានផ្ទាល់ខ្លួន</h3>
+                </div>
+                <div class="profile-details">
+                    <p><strong><i class="fas fa-user-edit"></i> អ្នកបង្កើត:</strong> ហម ម៉ាលីនដា</p>
+                    <p><strong><i class="fas fa-phone"></i> លេខទូរសព្ទ:</strong> 017 751 115</p>
+                    <a href="https://t.me/MalindaHorm" target="_blank" class="btn-telegram">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('home')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('account')">
+            <i class="fas fa-user"></i>
+            <span>គណនី</span>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
