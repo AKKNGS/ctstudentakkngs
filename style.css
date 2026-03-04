@@ -87,38 +87,74 @@ header h2 {
 .card-info .count { font-size: 1.2rem; font-weight: bold; }
 
 /* Table Style */
+/* រចនា Container របស់តារាង */
 .table-container {
-    margin: 0 20px;
+    margin: 15px;
     background: var(--white);
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* បន្ថែមស្រមោលឱ្យមើលទៅអណ្តែតស្អាត */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
 }
 
+/* ក្បាលតារាង (Header) */
 th {
-    background: #f8f9fa;
-    padding: 12px;
+    background-color: #f8faff;
+    color: #555;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 15px 10px;
+    border-bottom: 2px solid #edf2f7;
     text-align: left;
-    font-size: 0.9rem;
 }
 
+/* ជួរដេកនីមួយៗ (Rows) */
 td {
-    padding: 12px;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
+    padding: 14px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    color: #444;
 }
 
-/* Gender icons in the table */
+/* បន្ថែមពណ៌ឆ្លាស់គ្នា (Zebra Stripe) */
+tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+/* ដាក់ Hover Effect នៅពេលដាក់ Mouse លើ ឬប៉ះ */
+tr:hover {
+    background-color: #f0f7ff;
+    transition: 0.3s;
+}
+
+/* រចនាផ្នែក Icon ភេទក្នុងតារាង */
 .gender-icon {
-    margin-right: 8px;
-    width: 16px; /* consistent space */
+    font-size: 0.85rem;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.color-pink { background: #fff0f5; color: #E91E63; }
+.color-blue { background: #e6f2ff; color: #4A90E2; }
+
+/* សម្រាប់ជួរ "លរ" ឱ្យនៅកណ្ដាល */
+td:first-child {
+    font-weight: bold;
+    color: #888;
+    width: 40px;
     text-align: center;
 }
-
 /* Account Page */
 .hidden { display: none; }
 
@@ -174,4 +210,5 @@ td {
 
 .nav-item.active { color: var(--primary-color); }
 .nav-item i { font-size: 1.2rem; }
+
 .nav-item span { font-size: 0.7rem; margin-top: 4px; }
