@@ -53,33 +53,58 @@
         </section>
 
         <section id="account-page" class="hidden">
-            <div class="profile-card shadow">
-                <div class="avatar"><i class="fas fa-user-circle"></i></div>
-                <h3>ព័ត៌មានផ្ទាល់ខ្លួន</h3>
-                <div class="profile-details">
-                    <p><strong>អ្នកបង្កើត:</strong> ហម ម៉ាលីនដា</p>
-                    <p><strong>លេខទូរសព្ទ:</strong> 017 751 115</p>
-                    <a href="https://t.me/MalindaHorm" class="btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+            <div class="account-container">
+                <div class="profile-header-card shadow">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="profile-name">ហម ម៉ាលីនដា</h3>
+                    <p class="profile-role">អ្នកបង្កើតប្រព័ន្ធ (Developer)</p>
+                </div>
+
+                <div class="contact-card shadow">
+                    <h4 class="card-title">ព័ត៌មានទំនាក់ទំនង</h4>
+                    
+                    <div class="contact-item">
+                        <div class="icon-box blue"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-info">
+                            <span>លេខទូរស័ព្ទ</span>
+                            <strong>017 751 115</strong>
+                        </div>
+                        <a href="tel:017751115" class="call-btn"><i class="fas fa-phone"></i></a>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon-box telegram"><i class="fab fa-telegram-plane"></i></div>
+                        <div class="contact-info">
+                            <span>តេឡេក្រាម</span>
+                            <strong>@MalindaHorm</strong>
+                        </div>
+                        <a href="https://t.me/MalindaHorm" target="_blank" class="call-btn tg"><i class="fas fa-paper-plane"></i></a>
+                    </div>
+                </div>
+
+                <div class="info-footer">
+                    <p>© 2026 រក្សាសិទ្ធិគ្រប់យ៉ាង</p>
                 </div>
             </div>
         </section>
     </main>
 
     <div id="detail-modal" class="modal">
-        <div class="modal-content shadow">
+        <div class="modal-content shadow animate-pop">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modal-body">
-                </div>
+            <div id="modal-body"></div>
         </div>
     </div>
 
     <nav class="bottom-nav">
         <div class="nav-item active" onclick="switchTab('home')">
-            <i class="fas fa-th-large"></i>
+            <i class="fas fa-home"></i>
             <span>Home</span>
         </div>
         <div class="nav-item" onclick="switchTab('account')">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user-circle"></i>
             <span>គណនី</span>
         </div>
     </nav>
