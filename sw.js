@@ -1,5 +1,5 @@
-const cacheName = 'student-v1';
-const assets = ['./', './index.html', './style.css', './script.js', './manifest.json'];
+const cacheName = 'ct-student-v2';
+const assets = ['./', './index.html', './style.css', './script.js', './manifest.json', './logo.png'];
 
 self.addEventListener('install', e => {
     e.waitUntil(caches.open(cacheName).then(cache => cache.addAll(assets)));
