@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ប្រព័ន្ធគ្រប់គ្រងសិស្ស</title>
+    <title>ប្រព័ន្ធគ្រប់គ្រងសិស្ស CT</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
     <header>
         <div class="header-content">
-            <img src="logo.png" alt="សាលា Logo" class="school-logo">
+            <img src="logo.png" alt="Logo" class="school-logo">
             <div class="school-name">
                 <div>សាលាបឋមសិក្សាសម្តេចព្រះរាជអគ្គមហេសី</div>
                 <div>នរោត្តមមុនីនាថសីហនុ</div>
@@ -27,14 +27,14 @@
         <section id="home-page">
             <div class="summary-cards">
                 <div class="card shadow">
-                    <i class="fas fa-users color-blue"></i>
+                    <i class="fas fa-users color-blue-icon"></i>
                     <div class="card-info">
                         <span class="label">សិស្សសរុប</span>
                         <span class="count" id="total-students">0</span>
                     </div>
                 </div>
                 <div class="card shadow">
-                    <i class="fas fa-venus color-pink"></i>
+                    <i class="fas fa-venus color-pink-icon"></i>
                     <div class="card-info">
                         <span class="label">សរុបស្រី</span>
                         <span class="count" id="total-female">0</span>
@@ -42,12 +42,19 @@
                 </div>
             </div>
 
-            <div class="table-container shadow">
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="ស្វែងរកឈ្មោះសិស្ស..." onkeyup="filterData()">
+                </div>
+            </div>
+
+            <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>លរ</th>
-                            <th>ឈ្មោះ</th>
+                            <th>ឈ្មោះសិស្ស</th>
                             <th>ភេទ</th>
                             <th>ថ្នាក់</th>
                         </tr>
@@ -68,7 +75,7 @@
                     <p><strong><i class="fas fa-user-edit"></i> អ្នកបង្កើត:</strong> ហម ម៉ាលីនដា</p>
                     <p><strong><i class="fas fa-phone"></i> លេខទូរសព្ទ:</strong> 017 751 115</p>
                     <a href="https://t.me/MalindaHorm" target="_blank" class="btn-telegram">
-                        <i class="fab fa-telegram"></i> Telegram
+                        <i class="fab fa-telegram"></i> t.me/MalindaHorm
                     </a>
                 </div>
             </div>
