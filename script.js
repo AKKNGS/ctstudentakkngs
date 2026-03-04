@@ -3,15 +3,14 @@ let allStudents = [];
 
 async function loadData() {
     const grid = document.getElementById('student-grid');
-    grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>កំពុងទាញទិន្នន័យ...</p>";
+    grid.innerHTML = "<div style='grid-column: 1/-1; text-align:center; padding: 50px; color:#718096;'>កំពុងទាញទិន្នន័យ...</div>";
 
     try {
         const response = await fetch(API_URL);
         allStudents = await response.json();
-        
         displayStudents(allStudents);
     } catch (error) {
-        grid.innerHTML = "<p style='grid-column: 1/-1; color:red;'>មិនអាចទាញទិន្នន័យបាន!</p>";
+        grid.innerHTML = "<div style='grid-column: 1/-1; text-align:center; color:red; padding: 50px;'>បញ្ហាការតភ្ជាប់!</div>";
     }
 }
 
@@ -33,7 +32,6 @@ function displayStudents(data) {
         card.onclick = () => showDetails(s, actualCount);
         
         card.innerHTML = `
-            <span class="id-badge">ID: ${actualCount}</span>
             <div class="g-icon ${isFemale ? 'bg-pink' : 'bg-blue'}">
                 <i class="fas ${isFemale ? 'fa-venus' : 'fa-mars'}"></i>
             </div>
@@ -53,16 +51,16 @@ function showDetails(s, id) {
     const isFemale = s.gender === "ស្រី";
 
     body.innerHTML = `
-        <div class="g-icon ${isFemale ? 'bg-pink' : 'bg-blue'}" style="width:60px; height:60px; font-size:1.5rem;">
+        <div class="g-icon ${isFemale ? 'bg-pink' : 'bg-blue'}" style="width:70px; height:70px; font-size:1.8rem; margin-bottom:15px;">
             <i class="fas ${isFemale ? 'fa-venus' : 'fa-mars'}"></i>
         </div>
-        <h2 style="margin: 15px 0;">${s.name}</h2>
-        <div style="text-align: left; background: #f7fafc; padding: 15px; border-radius: 12px;">
-            <p><strong>លរ:</strong> ${id}</p>
-            <p><strong>ភេទ:</strong> ${s.gender}</p>
+        <h2 style="margin-bottom: 20px;">${s.name}</h2>
+        <div style="text-align: left; background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #edf2f7;">
+            <p style="margin-bottom:10px;"><strong>លរ:</strong> ${id}</p>
+            <p style="margin-bottom:10px;"><strong>ភេទ:</strong> ${s.gender}</p>
             <p><strong>ថ្នាក់:</strong> ${s.grade || 'មិនទាន់បញ្ជាក់'}</p>
         </div>
-        <button onclick="closeModal()" style="margin-top:20px; width:100%; padding:12px; border:none; background:var(--primary); color:white; border-radius:10px;">បិទ</button>
+        <button onclick="closeModal()" style="margin-top:25px; width:100%; padding:14px; border:none; background:var(--primary); color:white; border-radius:12px; font-weight:bold; cursor:pointer;">យល់ព្រម</button>
     `;
     modal.style.display = "block";
 }
@@ -80,20 +78,21 @@ function filterData() {
 function switchTab(tab) {
     const home = document.getElementById('home-page');
     const account = document.getElementById('account-page');
+    const title = document.getElementById('page-title');
     const navItems = document.querySelectorAll('.nav-item');
 
     if (tab === 'home') {
         home.classList.remove('hidden'); account.classList.add('hidden');
+        title.innerText = "បញ្ជីរាយនាមសិស្សរៀន CT";
         navItems[0].classList.add('active'); navItems[1].classList.remove('active');
     } else {
         home.classList.add('hidden'); account.classList.remove('hidden');
+        title.innerText = "គណនី";
         navItems[0].classList.remove('active'); navItems[1].classList.add('active');
     }
 }
 
-window.onclick = (event) => {
-    const modal = document.getElementById('detail-modal');
-    if (event.target == modal) closeModal();
-}
+// Close modal when clicking outside
+window.onclick = (e) => { if (e.target == document.getElementById('detail-modal')) closeModal(); }
 
 window.onload = loadData;
