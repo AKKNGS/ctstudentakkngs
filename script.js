@@ -7,49 +7,45 @@ async function loadData() {
     const totalStudentsEl = document.getElementById('total-students');
     const totalFemaleEl = document.getElementById('total-female');
     
-    // បង្ហាញសារថាកំពុងទាញទិន្នន័យ
-    list.innerHTML = "<tr><td colspan='4' style='text-align:center;'>កំពុងទាញទិន្នន័យ...</td></tr>";
+    list.innerHTML = "<tr><td colspan='4' style='text-align:center; padding:20px;'>កំពុងទាញទិន្នន័យ...</td></tr>";
 
     try {
-        // ទាញទិន្នន័យពី API_URL
         const response = await fetch(API_URL);
         const studentData = await response.json();
         
-        // លុបសារ "កំពុងទាញ" ចេញវិញ
         list.innerHTML = ""; 
         let femaleCount = 0;
+        let actualCount = 0;
 
-        // បញ្ចូលទិន្នន័យទៅក្នុងតារាង
         studentData.forEach(s => {
-            if (!s.name || s.name.trim() === "") return;
+            // ១. ឆែកមើល Row ទទេ៖ បើគ្មានឈ្មោះ គឺមិនបង្ហាញឡើយ
+            if (!s.name || s.name.trim() === "") return; 
+
+            actualCount++;
             let genderIconClass = "";
-            
             if (s.gender === "ស្រី") {
                 femaleCount++;
-                genderIconClass = "fa-venus gender-icon color-pink"; // Icon ស្រី
-            } else if (s.gender === "ប្រុស") {
-                genderIconClass = "fa-mars gender-icon color-blue"; // Icon ប្រុស
+                genderIconClass = "fa-venus color-pink"; 
+            } else {
+                genderIconClass = "fa-mars color-blue"; 
             }
 
             const row = `<tr>
-                <td>${s.id}</td>
-                <td><i class="fas ${genderIconClass}"></i>${s.name}</td>
-                <td>${s.gender}</td>
-                <td>${s.grade || ""}</td>
+                <td>${actualCount}</td>
+                <td><span class="gender-icon ${genderIconClass}"><i class="fas ${genderIconClass.split(' ')[0]}"></i></span> ${s.name}</td>
+                <td style="color: ${s.gender === 'ស្រី' ? '#E91E63' : '#4A90E2'};">${s.gender}</td>
+                <td><span style="background:#eee; padding:2px 8px; border-radius:5px; font-size:0.8rem;">${s.grade || '-'}</span></td>
             </tr>`;
             list.innerHTML += row;
         });
 
-        // បង្ហាញចំនួនសរុបនៅលើកាត (Card)
-        totalStudentsEl.innerText = studentData.length;
+        totalStudentsEl.innerText = actualCount;
         totalFemaleEl.innerText = femaleCount;
 
     } catch (error) {
-        console.error("Error loading data:", error);
-        list.innerHTML = "<tr><td colspan='4' style='text-align:center; color:red;'>ការទាញទិន្នន័យមិនជោគជ័យ!</td></tr>";
+        list.innerHTML = "<tr><td colspan='4' style='text-align:center; color:red;'>មិនអាចទាញទិន្នន័យបាន!</td></tr>";
     }
 }
-
 // ៣. Function សម្រាប់ប្តូរទំព័រ Home និង Account
 function switchTab(tab) {
     const home = document.getElementById('home-page');
@@ -75,3 +71,4 @@ function switchTab(tab) {
 // ៤. ហៅឱ្យ loadData ដំណើរការនៅពេលបើក App ភ្លាម
 
 window.onload = loadData;
+
